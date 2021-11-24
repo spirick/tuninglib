@@ -1,0 +1,790 @@
+
+Count UTF-32 = UTF-8 --------------------------------------
+
+MissingNull  0
+OK  0
+>0 OK  1
+>0 OK  1
+61 62 >63 MissingNull  0
+>61 62 63 OK  3
+>61 62 63 0 OK  4
+>61 62 63 0 OK  4
+61 >0 63 0 NullInside  0
+>61 0 63 0 OK  4
+61 62 >0 0 NullInside  0
+>61 62 0 0 OK  4
+
+>67 68 69 OK  3
+>67 68 C3 A4 OK  3
+>67 C3 A4 68 OK  3
+>C3 A4 67 68 OK  3
+>67 68 E2 82 AC OK  3
+>67 E2 82 AC 68 OK  3
+>E2 82 AC 67 68 OK  3
+>67 68 F0 9D 84 9E OK  3
+>67 F0 9D 84 9E 68 OK  3
+>F0 9D 84 9E 67 68 OK  3
+
+67 68 >C3 MbEnd  0
+67 68 >E2 82 MbEnd  0
+67 68 >F0 9D 84 MbEnd  0
+
+67 68 >80 MbMissingStart  0
+67 68 >BF MbMissingStart  0
+67 68 >C0 MbEnd  0
+67 68 >F7 MbEnd  0
+67 68 >F8 MbInvalidStart  0
+67 68 >FF MbInvalidStart  0
+
+67 68 C3 >7F MbExpected  0
+>67 68 C3 80 OK  3
+>67 68 C3 BF OK  3
+67 68 C3 >C0 MbExpected  0
+67 68 E2 82 >7F MbExpected  0
+>67 68 E2 82 80 OK  3
+>67 68 E2 82 BF OK  3
+67 68 E2 82 >C0 MbExpected  0
+67 68 F0 9D 84 >7F MbExpected  0
+>67 68 F0 9D 84 80 OK  3
+>67 68 F0 9D 84 BF OK  3
+67 68 F0 9D 84 >C0 MbExpected  0
+
+67 68 C0 >80 WideRange  0
+67 68 C1 >BF WideRange  0
+>67 68 C2 80 OK  3
+>67 68 DF BF OK  3
+67 68 E0 80 >80 WideRange  0
+67 68 E0 9F >BF WideRange  0
+>67 68 E0 A0 80 OK  3
+>67 68 EF BF BF OK  3
+67 68 F0 80 80 >80 WideRange  0
+67 68 F0 8F BF >BF WideRange  0
+>67 68 F0 90 80 80 OK  3
+>67 68 F4 8F BF BF OK  3
+67 68 F4 90 80 >80 WideRange  0
+
+>67 68 ED 9F BF OK  3
+67 68 ED A0 >80 Surrogate  0
+67 68 ED BF >BF Surrogate  0
+>67 68 EE 80 80 OK  3
+
+Conv UTF-32 = UTF-8 --------------------------------------
+
+DestTooLarge 
+0 DestTooSmall 
+0 DestTooSmall 
+0 DestTooLarge 
+0 DestTooLarge 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooLarge 
+61 62 63 0 DestTooLarge 
+
+MissingNull 
+OK
+0 -> 0 OK OK 
+0 -> 0 OK OK 
+61 62 63 MissingNull 
+61 62 63 -> 61 62 63 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 0 63 0 NullInside 
+61 0 63 0 -> 61 0 63 0 OK OK 
+61 62 0 0 NullInside 
+61 62 0 0 -> 61 62 0 0 OK OK 
+
+67 68 69 -> 67 68 69 OK OK 
+67 68 C3 A4 -> 67 68 E4 OK OK 
+67 C3 A4 68 -> 67 E4 68 OK OK 
+C3 A4 67 68 -> E4 67 68 OK OK 
+67 68 E2 82 AC -> 67 68 20AC OK OK 
+67 E2 82 AC 68 -> 67 20AC 68 OK OK 
+E2 82 AC 67 68 -> 20AC 67 68 OK OK 
+67 68 F0 9D 84 9E -> 67 68 1D11E OK OK 
+67 F0 9D 84 9E 68 -> 67 1D11E 68 OK OK 
+F0 9D 84 9E 67 68 -> 1D11E 67 68 OK OK 
+
+67 68 C3 MbEnd 
+67 68 E2 82 MbEnd 
+67 68 F0 9D 84 MbEnd 
+
+67 68 80 MbMissingStart 
+67 68 BF MbMissingStart 
+67 68 C0 MbEnd 
+67 68 F7 MbEnd 
+67 68 F8 MbInvalidStart 
+67 68 FF MbInvalidStart 
+
+67 68 C3 7F MbExpected 
+67 68 C3 80 -> 67 68 C0 OK OK 
+67 68 C3 BF -> 67 68 FF OK OK 
+67 68 C3 C0 MbExpected 
+67 68 E2 82 7F MbExpected 
+67 68 E2 82 80 -> 67 68 2080 OK OK 
+67 68 E2 82 BF -> 67 68 20BF OK OK 
+67 68 E2 82 C0 MbExpected 
+67 68 F0 9D 84 7F MbExpected 
+67 68 F0 9D 84 80 -> 67 68 1D100 OK OK 
+67 68 F0 9D 84 BF -> 67 68 1D13F OK OK 
+67 68 F0 9D 84 C0 MbExpected 
+
+67 68 C0 80 WideRange 
+67 68 C1 BF WideRange 
+67 68 C2 80 -> 67 68 80 OK OK 
+67 68 DF BF -> 67 68 7FF OK OK 
+67 68 E0 80 80 WideRange 
+67 68 E0 9F BF WideRange 
+67 68 E0 A0 80 -> 67 68 800 OK OK 
+67 68 EF BF BF -> 67 68 FFFF OK OK 
+67 68 F0 80 80 80 WideRange 
+67 68 F0 8F BF BF WideRange 
+67 68 F0 90 80 80 -> 67 68 10000 OK OK 
+67 68 F4 8F BF BF -> 67 68 10FFFF OK OK 
+67 68 F4 90 80 80 WideRange 
+
+67 68 ED 9F BF -> 67 68 D7FF OK OK 
+67 68 ED A0 80 Surrogate 
+67 68 ED BF BF Surrogate 
+67 68 EE 80 80 -> 67 68 E000 OK OK 
+
+Count UTF-8 = UTF-32 --------------------------------------
+
+MissingNull  0
+OK  0
+>0 OK  1
+>0 OK  1
+61 62 >63 MissingNull  0
+>61 62 63 OK  3
+>61 62 63 0 OK  4
+>61 62 63 0 OK  4
+61 >0 63 0 NullInside  0
+>61 0 63 0 OK  4
+61 62 >0 0 NullInside  0
+>61 62 0 0 OK  4
+
+>67 68 69 OK  3
+>67 68 E4 OK  4
+>67 E4 68 OK  4
+>E4 67 68 OK  4
+>67 68 20AC OK  5
+>67 20AC 68 OK  5
+>20AC 67 68 OK  5
+>67 68 1D11E OK  6
+>67 1D11E 68 OK  6
+>1D11E 67 68 OK  6
+
+>67 68 0 OK  3
+>67 68 7F OK  3
+>67 68 80 OK  4
+>67 68 7FF OK  4
+>67 68 800 OK  5
+>67 68 FFFF OK  5
+>67 68 10000 OK  6
+>67 68 10FFFF OK  6
+67 68 >110000 WideRange  0
+
+>67 68 D7FF OK  5
+67 68 >D800 Surrogate  0
+67 68 >DFFF Surrogate  0
+>67 68 E000 OK  5
+
+Conv UTF-8 = UTF-32 --------------------------------------
+
+DestTooLarge 
+0 DestTooSmall 
+0 DestTooSmall 
+0 DestTooLarge 
+0 DestTooLarge 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooLarge 
+61 62 63 0 DestTooLarge 
+
+67 68 E4 DestTooSmall 
+67 68 E4 DestTooLarge 
+67 68 20AC DestTooSmall 
+67 68 20AC DestTooLarge 
+67 68 1D11E DestTooSmall 
+67 68 1D11E DestTooLarge 
+
+MissingNull 
+OK
+0 -> 0 OK OK 
+0 -> 0 OK OK 
+61 62 63 MissingNull 
+61 62 63 -> 61 62 63 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 0 63 0 NullInside 
+61 0 63 0 -> 61 0 63 0 OK OK 
+61 62 0 0 NullInside 
+61 62 0 0 -> 61 62 0 0 OK OK 
+
+67 68 69 -> 67 68 69 OK OK 
+67 68 E4 -> 67 68 C3 A4 OK OK 
+67 E4 68 -> 67 C3 A4 68 OK OK 
+E4 67 68 -> C3 A4 67 68 OK OK 
+67 68 20AC -> 67 68 E2 82 AC OK OK 
+67 20AC 68 -> 67 E2 82 AC 68 OK OK 
+20AC 67 68 -> E2 82 AC 67 68 OK OK 
+67 68 1D11E -> 67 68 F0 9D 84 9E OK OK 
+67 1D11E 68 -> 67 F0 9D 84 9E 68 OK OK 
+1D11E 67 68 -> F0 9D 84 9E 67 68 OK OK 
+
+67 68 0 -> 67 68 0 OK OK 
+67 68 7F -> 67 68 7F OK OK 
+67 68 80 -> 67 68 C2 80 OK OK 
+67 68 7FF -> 67 68 DF BF OK OK 
+67 68 800 -> 67 68 E0 A0 80 OK OK 
+67 68 FFFF -> 67 68 EF BF BF OK OK 
+67 68 10000 -> 67 68 F0 90 80 80 OK OK 
+67 68 10FFFF -> 67 68 F4 8F BF BF OK OK 
+67 68 110000 WideRange 
+
+67 68 D7FF -> 67 68 ED 9F BF OK OK 
+67 68 D800 Surrogate 
+67 68 DFFF Surrogate 
+67 68 E000 -> 67 68 EE 80 80 OK OK 
+
+Count UTF-32 = UTF-16 --------------------------------------
+
+MissingNull  0
+OK  0
+>0 OK  1
+>0 OK  1
+61 62 >63 MissingNull  0
+>61 62 63 OK  3
+>61 62 63 0 OK  4
+>61 62 63 0 OK  4
+61 >0 63 0 NullInside  0
+>61 0 63 0 OK  4
+61 62 >0 0 NullInside  0
+>61 62 0 0 OK  4
+
+>67 68 69 OK  3
+>67 68 D834 DD1E OK  3
+>67 D834 DD1E 68 OK  3
+>D834 DD1E 67 68 OK  3
+
+>67 68 D7FF 0 OK  4
+>67 68 D800 DC00 OK  3
+>67 68 DBFF DC00 OK  3
+67 68 >DC00 DC00 HighSurrExpected  0
+67 68 >DFFF DC00 HighSurrExpected  0
+>67 68 E000 0 OK  4
+67 68 D800 >0 LowSurrExpected  0
+67 68 D800 >DBFF LowSurrExpected  0
+>67 68 D800 DC00 OK  3
+>67 68 D800 DFFF OK  3
+>67 68 DBFF DFFF OK  3
+67 68 D800 >E000 LowSurrExpected  0
+67 68 >D800 SurrEnd  0
+
+Conv UTF-32 = UTF-16 --------------------------------------
+
+DestTooLarge 
+0 DestTooSmall 
+0 DestTooSmall 
+0 DestTooLarge 
+0 DestTooLarge 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooLarge 
+61 62 63 0 DestTooLarge 
+
+MissingNull 
+OK
+0 -> 0 OK OK 
+0 -> 0 OK OK 
+61 62 63 MissingNull 
+61 62 63 -> 61 62 63 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 0 63 0 NullInside 
+61 0 63 0 -> 61 0 63 0 OK OK 
+61 62 0 0 NullInside 
+61 62 0 0 -> 61 62 0 0 OK OK 
+
+67 68 69 -> 67 68 69 OK OK 
+67 68 D834 DD1E -> 67 68 1D11E OK OK 
+67 D834 DD1E 68 -> 67 1D11E 68 OK OK 
+D834 DD1E 67 68 -> 1D11E 67 68 OK OK 
+
+67 68 D7FF 0 -> 67 68 D7FF 0 OK OK 
+67 68 D800 DC00 -> 67 68 10000 OK OK 
+67 68 DBFF DC00 -> 67 68 10FC00 OK OK 
+67 68 DC00 DC00 HighSurrExpected 
+67 68 DFFF DC00 HighSurrExpected 
+67 68 E000 0 -> 67 68 E000 0 OK OK 
+67 68 D800 0 LowSurrExpected 
+67 68 D800 DBFF LowSurrExpected 
+67 68 D800 DC00 -> 67 68 10000 OK OK 
+67 68 D800 DFFF -> 67 68 103FF OK OK 
+67 68 DBFF DFFF -> 67 68 10FFFF OK OK 
+67 68 D800 E000 LowSurrExpected 
+67 68 D800 SurrEnd 
+
+Count UTF-16 = UTF-32 --------------------------------------
+
+MissingNull  0
+OK  0
+>0 OK  1
+>0 OK  1
+61 62 >63 MissingNull  0
+>61 62 63 OK  3
+>61 62 63 0 OK  4
+>61 62 63 0 OK  4
+61 >0 63 0 NullInside  0
+>61 0 63 0 OK  4
+61 62 >0 0 NullInside  0
+>61 62 0 0 OK  4
+
+>67 68 69 OK  3
+>67 68 20AC OK  3
+>67 20AC 68 OK  3
+>20AC 67 68 OK  3
+>67 68 1D11E OK  4
+>67 1D11E 68 OK  4
+>1D11E 67 68 OK  4
+
+>67 68 0 OK  3
+>67 68 FFFF OK  3
+>67 68 10000 OK  4
+>67 68 10FFFF OK  4
+67 68 >110000 WideRange  0
+
+>67 68 D7FF OK  3
+67 68 >D800 Surrogate  0
+67 68 >DFFF Surrogate  0
+>67 68 E000 OK  3
+
+Conv UTF-16 = UTF-32 --------------------------------------
+
+DestTooLarge 
+0 DestTooSmall 
+0 DestTooSmall 
+0 DestTooLarge 
+0 DestTooLarge 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooLarge 
+61 62 63 0 DestTooLarge 
+
+67 68 1D11E DestTooSmall 
+67 68 1D11E -> 67 68 D834 DD1E OK OK 
+67 68 1D11E DestTooLarge 
+
+MissingNull 
+OK
+0 -> 0 OK OK 
+0 -> 0 OK OK 
+61 62 63 MissingNull 
+61 62 63 -> 61 62 63 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 0 63 0 NullInside 
+61 0 63 0 -> 61 0 63 0 OK OK 
+61 62 0 0 NullInside 
+61 62 0 0 -> 61 62 0 0 OK OK 
+
+67 68 69 -> 67 68 69 OK OK 
+67 68 20AC -> 67 68 20AC OK OK 
+67 20AC 68 -> 67 20AC 68 OK OK 
+20AC 67 68 -> 20AC 67 68 OK OK 
+67 68 1D11E -> 67 68 D834 DD1E OK OK 
+67 1D11E 68 -> 67 D834 DD1E 68 OK OK 
+1D11E 67 68 -> D834 DD1E 67 68 OK OK 
+
+67 68 0 -> 67 68 0 OK OK 
+67 68 FFFF -> 67 68 FFFF OK OK 
+67 68 10000 -> 67 68 D800 DC00 OK OK 
+67 68 10FFFF -> 67 68 DBFF DFFF OK OK 
+67 68 110000 WideRange 
+
+67 68 D7FF -> 67 68 D7FF OK OK 
+67 68 D800 Surrogate 
+67 68 DFFF Surrogate 
+67 68 E000 -> 67 68 E000 OK OK 
+
+Count UTF-16 = UTF-8 --------------------------------------
+
+MissingNull  0
+OK  0
+>0 OK  1
+>0 OK  1
+61 62 >63 MissingNull  0
+>61 62 63 OK  3
+>61 62 63 0 OK  4
+>61 62 63 0 OK  4
+61 >0 63 0 NullInside  0
+>61 0 63 0 OK  4
+61 62 >0 0 NullInside  0
+>61 62 0 0 OK  4
+
+>67 68 69 OK  3
+>67 68 C3 A4 OK  3
+>67 C3 A4 68 OK  3
+>C3 A4 67 68 OK  3
+>67 68 E2 82 AC OK  3
+>67 E2 82 AC 68 OK  3
+>E2 82 AC 67 68 OK  3
+>67 68 F0 9D 84 9E OK  4
+>67 F0 9D 84 9E 68 OK  4
+>F0 9D 84 9E 67 68 OK  4
+
+67 68 >C3 MbEnd  0
+67 68 >E2 82 MbEnd  0
+67 68 >F0 9D 84 MbEnd  0
+
+67 68 >80 MbMissingStart  0
+67 68 >BF MbMissingStart  0
+67 68 >C0 MbEnd  0
+67 68 >F7 MbEnd  0
+67 68 >F8 MbInvalidStart  0
+67 68 >FF MbInvalidStart  0
+
+67 68 C3 >7F MbExpected  0
+>67 68 C3 80 OK  3
+>67 68 C3 BF OK  3
+67 68 C3 >C0 MbExpected  0
+67 68 E2 82 >7F MbExpected  0
+>67 68 E2 82 80 OK  3
+>67 68 E2 82 BF OK  3
+67 68 E2 82 >C0 MbExpected  0
+67 68 F0 9D 84 >7F MbExpected  0
+>67 68 F0 9D 84 80 OK  4
+>67 68 F0 9D 84 BF OK  4
+67 68 F0 9D 84 >C0 MbExpected  0
+
+67 68 C0 >80 WideRange  0
+67 68 C1 >BF WideRange  0
+>67 68 C2 80 OK  3
+>67 68 DF BF OK  3
+67 68 E0 80 >80 WideRange  0
+67 68 E0 9F >BF WideRange  0
+>67 68 E0 A0 80 OK  3
+>67 68 EF BF BF OK  3
+67 68 F0 80 80 >80 WideRange  0
+67 68 F0 8F BF >BF WideRange  0
+>67 68 F0 90 80 80 OK  4
+>67 68 F4 8F BF BF OK  4
+67 68 F4 90 80 >80 WideRange  0
+
+>67 68 ED 9F BF OK  3
+67 68 ED A0 >80 Surrogate  0
+67 68 ED BF >BF Surrogate  0
+>67 68 EE 80 80 OK  3
+
+Conv UTF-16 = UTF-8 --------------------------------------
+
+DestTooLarge 
+0 DestTooSmall 
+0 DestTooSmall 
+0 DestTooLarge 
+0 DestTooLarge 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooLarge 
+61 62 63 0 DestTooLarge 
+
+67 68 F0 9D 84 9E DestTooSmall 
+67 68 F0 9D 84 9E -> 67 68 D834 DD1E OK OK 
+67 68 F0 9D 84 9E DestTooLarge 
+
+MissingNull 
+OK
+0 -> 0 OK OK 
+0 -> 0 OK OK 
+61 62 63 MissingNull 
+61 62 63 -> 61 62 63 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 0 63 0 NullInside 
+61 0 63 0 -> 61 0 63 0 OK OK 
+61 62 0 0 NullInside 
+61 62 0 0 -> 61 62 0 0 OK OK 
+
+67 68 69 -> 67 68 69 OK OK 
+67 68 C3 A4 -> 67 68 E4 OK OK 
+67 C3 A4 68 -> 67 E4 68 OK OK 
+C3 A4 67 68 -> E4 67 68 OK OK 
+67 68 E2 82 AC -> 67 68 20AC OK OK 
+67 E2 82 AC 68 -> 67 20AC 68 OK OK 
+E2 82 AC 67 68 -> 20AC 67 68 OK OK 
+67 68 F0 9D 84 9E -> 67 68 D834 DD1E OK OK 
+67 F0 9D 84 9E 68 -> 67 D834 DD1E 68 OK OK 
+F0 9D 84 9E 67 68 -> D834 DD1E 67 68 OK OK 
+
+67 68 C3 MbEnd 
+67 68 E2 82 MbEnd 
+67 68 F0 9D 84 MbEnd 
+
+67 68 80 MbMissingStart 
+67 68 BF MbMissingStart 
+67 68 C0 MbEnd 
+67 68 F7 MbEnd 
+67 68 F8 MbInvalidStart 
+67 68 FF MbInvalidStart 
+
+67 68 C3 7F MbExpected 
+67 68 C3 80 -> 67 68 C0 OK OK 
+67 68 C3 BF -> 67 68 FF OK OK 
+67 68 C3 C0 MbExpected 
+67 68 E2 82 7F MbExpected 
+67 68 E2 82 80 -> 67 68 2080 OK OK 
+67 68 E2 82 BF -> 67 68 20BF OK OK 
+67 68 E2 82 C0 MbExpected 
+67 68 F0 9D 84 7F MbExpected 
+67 68 F0 9D 84 80 -> 67 68 D834 DD00 OK OK 
+67 68 F0 9D 84 BF -> 67 68 D834 DD3F OK OK 
+67 68 F0 9D 84 C0 MbExpected 
+
+67 68 C0 80 WideRange 
+67 68 C1 BF WideRange 
+67 68 C2 80 -> 67 68 80 OK OK 
+67 68 DF BF -> 67 68 7FF OK OK 
+67 68 E0 80 80 WideRange 
+67 68 E0 9F BF WideRange 
+67 68 E0 A0 80 -> 67 68 800 OK OK 
+67 68 EF BF BF -> 67 68 FFFF OK OK 
+67 68 F0 80 80 80 WideRange 
+67 68 F0 8F BF BF WideRange 
+67 68 F0 90 80 80 -> 67 68 D800 DC00 OK OK 
+67 68 F4 8F BF BF -> 67 68 DBFF DFFF OK OK 
+67 68 F4 90 80 80 WideRange 
+
+67 68 ED 9F BF -> 67 68 D7FF OK OK 
+67 68 ED A0 80 Surrogate 
+67 68 ED BF BF Surrogate 
+67 68 EE 80 80 -> 67 68 E000 OK OK 
+
+Count UTF-8 = UTF-16 --------------------------------------
+
+MissingNull  0
+OK  0
+>0 OK  1
+>0 OK  1
+61 62 >63 MissingNull  0
+>61 62 63 OK  3
+>61 62 63 0 OK  4
+>61 62 63 0 OK  4
+61 >0 63 0 NullInside  0
+>61 0 63 0 OK  4
+61 62 >0 0 NullInside  0
+>61 62 0 0 OK  4
+
+>67 68 69 OK  3
+>67 68 E4 OK  4
+>67 E4 68 OK  4
+>E4 67 68 OK  4
+>67 68 20AC OK  5
+>67 20AC 68 OK  5
+>20AC 67 68 OK  5
+>67 68 D834 DD1E OK  6
+>67 D834 DD1E 68 OK  6
+>D834 DD1E 67 68 OK  6
+
+>67 68 0 OK  3
+>67 68 7F OK  3
+>67 68 80 OK  4
+>67 68 7FF OK  4
+>67 68 800 OK  5
+>67 68 FFFF OK  5
+
+>67 68 D7FF 0 OK  6
+>67 68 D800 DC00 OK  6
+>67 68 DBFF DC00 OK  6
+67 68 >DC00 DC00 HighSurrExpected  0
+67 68 >DFFF DC00 HighSurrExpected  0
+>67 68 E000 0 OK  6
+67 68 D800 >0 LowSurrExpected  0
+67 68 D800 >DBFF LowSurrExpected  0
+>67 68 D800 DC00 OK  6
+>67 68 D800 DFFF OK  6
+>67 68 DBFF DFFF OK  6
+67 68 D800 >E000 LowSurrExpected  0
+67 68 >D800 SurrEnd  0
+
+Conv UTF-8 = UTF-16 --------------------------------------
+
+DestTooLarge 
+0 DestTooSmall 
+0 DestTooSmall 
+0 DestTooLarge 
+0 DestTooLarge 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooSmall 
+61 62 63 0 DestTooLarge 
+61 62 63 0 DestTooLarge 
+
+67 68 E4 DestTooSmall 
+67 68 E4 DestTooLarge 
+67 68 20AC DestTooSmall 
+67 68 20AC DestTooLarge 
+67 68 D834 DD1E DestTooSmall 
+67 68 D834 DD1E DestTooLarge 
+
+MissingNull 
+OK
+0 -> 0 OK OK 
+0 -> 0 OK OK 
+61 62 63 MissingNull 
+61 62 63 -> 61 62 63 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 62 63 0 -> 61 62 63 0 OK OK 
+61 0 63 0 NullInside 
+61 0 63 0 -> 61 0 63 0 OK OK 
+61 62 0 0 NullInside 
+61 62 0 0 -> 61 62 0 0 OK OK 
+
+67 68 69 -> 67 68 69 OK OK 
+67 68 E4 -> 67 68 C3 A4 OK OK 
+67 E4 68 -> 67 C3 A4 68 OK OK 
+E4 67 68 -> C3 A4 67 68 OK OK 
+67 68 20AC -> 67 68 E2 82 AC OK OK 
+67 20AC 68 -> 67 E2 82 AC 68 OK OK 
+20AC 67 68 -> E2 82 AC 67 68 OK OK 
+67 68 D834 DD1E -> 67 68 F0 9D 84 9E OK OK 
+67 D834 DD1E 68 -> 67 F0 9D 84 9E 68 OK OK 
+D834 DD1E 67 68 -> F0 9D 84 9E 67 68 OK OK 
+
+67 68 0 -> 67 68 0 OK OK 
+67 68 7F -> 67 68 7F OK OK 
+67 68 80 -> 67 68 C2 80 OK OK 
+67 68 7FF -> 67 68 DF BF OK OK 
+67 68 800 -> 67 68 E0 A0 80 OK OK 
+67 68 FFFF -> 67 68 EF BF BF OK OK 
+
+67 68 D7FF 0 -> 67 68 ED 9F BF 0 OK OK 
+67 68 D800 DC00 -> 67 68 F0 90 80 80 OK OK 
+67 68 DBFF DC00 -> 67 68 F4 8F B0 80 OK OK 
+67 68 DC00 DC00 HighSurrExpected 
+67 68 DFFF DC00 HighSurrExpected 
+67 68 E000 0 -> 67 68 EE 80 80 0 OK OK 
+67 68 D800 0 LowSurrExpected 
+67 68 D800 DBFF LowSurrExpected 
+67 68 D800 DC00 -> 67 68 F0 90 80 80 OK OK 
+67 68 D800 DFFF -> 67 68 F0 90 8F BF OK OK 
+67 68 DBFF DFFF -> 67 68 F4 8F BF BF OK OK 
+67 68 D800 E000 LowSurrExpected 
+67 68 D800 SurrEnd 
+
+Length --------------------------------------
+
+>67 68 69 OK  3
+>67 68 C3 A4 OK  3
+>67 68 E2 82 AC OK  3
+>67 68 F0 9D 84 9E OK  3
+
+>67 68 69 OK  3
+>67 68 D834 DD1E OK  3
+>67 D834 DD1E 68 OK  3
+>D834 DD1E 67 68 OK  3
+
+MissingNull  0
+OK  0
+>0 OK  1
+>0 OK  1
+61 62 >63 MissingNull  0
+>61 62 63 OK  3
+>61 62 63 0 OK  4
+>61 62 63 0 OK  4
+61 >0 63 0 NullInside  0
+>61 0 63 0 OK  4
+61 62 >0 0 NullInside  0
+>61 62 0 0 OK  4
+
+>67 68 69 OK  3
+>67 68 E4 OK  3
+>67 68 20AC OK  3
+>67 68 1D11E OK  3
+>67 68 10FFFF OK  3
+67 68 >110000 WideRange  0
+
+>67 68 D7FF OK  3
+67 68 >D800 Surrogate  0
+67 68 >DFFF Surrogate  0
+>67 68 E000 OK  3
+
+Upper/Lower --------------------------------------
+
+67 68 C3 MbEnd 47 48 >C3 
+67 68 E2 82 MbEnd 47 48 >E2 82 
+67 68 F0 9D 84 MbEnd 47 48 >F0 9D 84 
+
+OK -> OK -> 
+20 2D OK -> 20 2D OK -> 20 2D 
+20 61 41 2D OK -> 20 41 41 2D OK -> 20 61 61 2D 
+20 C3 A4 C3 84 2D OK -> 20 C3 84 C3 84 2D OK -> 20 C3 A4 C3 A4 2D 
+20 E1 B8 81 E1 B8 80 2D OK -> 20 E1 B8 80 E1 B8 80 2D OK -> 20 E1 B8 81 E1 B8 81 2D 
+
+61 D834 SurrEnd 41 >D834 
+61 D834 DBFF 41 LowSurrExpected 41 D834 >DBFF 41 
+61 D834 DD1E 41 OK -> 41 D834 DD1E 41 OK -> 61 D834 DD1E 61 
+
+20 2D OK -> 20 2D OK -> 20 2D 
+20 61 41 2D OK -> 20 41 41 2D OK -> 20 61 61 2D 
+20 E4 C4 2D OK -> 20 C4 C4 2D OK -> 20 E4 E4 2D 
+20 1E01 1E00 2D OK -> 20 1E00 1E00 2D OK -> 20 1E01 1E01 2D 
+
+61 D7FF 41 OK -> 41 D7FF 41 OK -> 61 D7FF 61 
+61 D800 41 Surrogate 41 >D800 41 
+61 DFFF 41 Surrogate 41 >DFFF 41 
+61 E000 41 OK -> 41 E000 41 OK -> 61 E000 61 
+61 10FFFF 41 OK -> 41 10FFFF 41 OK -> 61 10FFFF 61 
+61 110000 41 WideRange 41 >110000 41 
+
+20 2D OK -> 20 2D OK -> 20 2D 
+20 61 41 2D OK -> 20 41 41 2D OK -> 20 61 61 2D 
+20 E4 C4 2D OK -> 20 C4 C4 2D OK -> 20 E4 E4 2D 
+20 1E01 1E00 2D OK -> 20 1E00 1E00 2D OK -> 20 1E01 1E01 2D 
+
+Const iterator --------------------------------------
+
+OK
+67 0 0 1; 68 1 1 1; OK
+67 0 0 1; 68 1 1 1; OK
+67 0 0 1; 68 1 1 1; OK
+
+67 0 0 1; 68 1 1 1; 69 2 2 1; OK
+67 0 0 1; 68 1 1 1; E4 2 2 2; OK
+67 0 0 1; E4 1 1 2; 68 2 3 1; OK
+E4 0 0 2; 67 1 2 1; 68 2 3 1; OK
+67 0 0 1; 68 1 1 1; 20AC 2 2 3; OK
+67 0 0 1; 20AC 1 1 3; 68 2 4 1; OK
+20AC 0 0 3; 67 1 3 1; 68 2 4 1; OK
+67 0 0 1; 68 1 1 1; 1D11E 2 2 4; OK
+67 0 0 1; 1D11E 1 1 4; 68 2 5 1; OK
+1D11E 0 0 4; 67 1 4 1; 68 2 5 1; OK
+
+OK
+67 0 0 1; 68 1 1 1; OK
+67 0 0 1; 68 1 1 1; OK
+67 0 0 1; 68 1 1 1; OK
+
+67 0 0 1; 68 1 1 1; 69 2 2 1; OK
+67 0 0 1; 68 1 1 1; E4 2 2 1; OK
+67 0 0 1; E4 1 1 1; 68 2 2 1; OK
+E4 0 0 1; 67 1 1 1; 68 2 2 1; OK
+67 0 0 1; 68 1 1 1; 20AC 2 2 1; OK
+67 0 0 1; 20AC 1 1 1; 68 2 2 1; OK
+20AC 0 0 1; 67 1 1 1; 68 2 2 1; OK
+67 0 0 1; 68 1 1 1; 1D11E 2 2 2; OK
+67 0 0 1; 1D11E 1 1 2; 68 2 3 1; OK
+1D11E 0 0 2; 67 1 2 1; 68 2 3 1; OK
+
+OK
+67 0 0 1; 68 1 1 1; OK
+67 0 0 1; 68 1 1 1; OK
+
+67 0 0 1; 68 1 1 1; 69 2 2 1; OK
+67 0 0 1; 68 1 1 1; E4 2 2 1; OK
+67 0 0 1; E4 1 1 1; 68 2 2 1; OK
+E4 0 0 1; 67 1 1 1; 68 2 2 1; OK
+67 0 0 1; 68 1 1 1; 20AC 2 2 1; OK
+67 0 0 1; 20AC 1 1 1; 68 2 2 1; OK
+20AC 0 0 1; 67 1 1 1; 68 2 2 1; OK
+67 0 0 1; 68 1 1 1; 1D11E 2 2 1; OK
+67 0 0 1; 1D11E 1 1 1; 68 2 2 1; OK
+1D11E 0 0 1; 67 1 1 1; 68 2 2 1; OK
+

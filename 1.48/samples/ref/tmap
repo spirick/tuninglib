@@ -1,0 +1,44 @@
+Begin of main
+ct_Int ()
+
+operator = (int i = 11)
+ct_Int (const ct_Int & co_init = 11)
+ct_Int (const ct_Int & co_init = 11)
+~ct_Int (11)
+operator = (int i = 22)
+ct_Int (const ct_Int & co_init = 22)
+ct_Int (const ct_Int & co_init = 22)
+~ct_Int (22)
+operator = (int i = 33)
+ct_Int (const ct_Int & co_init = 33)
+ct_Int (const ct_Int & co_init = 33)
+~ct_Int (33)
+GetFirstValue ("def") = ct_Int = 22
+Map container:
+  Position: t_UInt32 = 1
+    Key:           ct_String = "abc"  Value: ct_Int = 11
+    GetFirstValue (ct_String = "abc") Value: ct_Int = 11
+  Position: t_UInt32 = 2
+    Key:           ct_String = "def"  Value: ct_Int = 22
+    GetFirstValue (ct_String = "def") Value: ct_Int = 22
+  Position: t_UInt32 = 3
+    Key:           ct_String = "ghi"  Value: ct_Int = 33
+    GetFirstValue (ct_String = "ghi") Value: ct_Int = 33
+~ct_Int (33)
+~ct_Int (22)
+~ct_Int (11)
+
+GetFirstValue (22) = ct_String = "def"
+Map container:
+  Position: t_UInt32 = 1
+    Key:           gct_Key of int = 11  Value: ct_String = "abc"
+    GetFirstValue (gct_Key of int = 11) Value: ct_String = "abc"
+  Position: t_UInt32 = 2
+    Key:           gct_Key of int = 22  Value: ct_String = "def"
+    GetFirstValue (gct_Key of int = 22) Value: ct_String = "def"
+  Position: t_UInt32 = 3
+    Key:           gct_Key of int = 33  Value: ct_String = "ghi"
+    GetFirstValue (gct_Key of int = 33) Value: ct_String = "ghi"
+
+End of main
+~ct_Int (33)

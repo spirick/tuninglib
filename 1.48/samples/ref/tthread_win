@@ -1,0 +1,96 @@
+Begin thread 1
+Begin thread 2
+Begin thread 3
+Pause thread 1
+Pause thread 2
+Pause thread 3
+End   thread 1
+End   thread 2
+End   thread 3
+
+In nested critical Th section
+
+Thread 4 in critical Th section (0)
+Thread 4 in critical Th section (1)
+Thread 4 in critical Th section (2)
+Thread 4 in critical Th section (3)
+Thread 4 in critical Th section (4)
+Main waites in critical Th section
+Main leaves critical Th section
+Thread 4 in critical Th section (5)
+Thread 4 in critical Th section (6)
+Thread 4 in critical Th section (7)
+Thread 4 in critical Th section (8)
+Thread 4 in critical Th section (9)
+
+Thread 5 in critical Th section (0)
+Thread 5 in critical Th section (1)
+Thread 5 in critical Th section (2)
+Thread 5 in critical Th section (3)
+Thread 5 in critical Th section (4)
+Main waites in critical Th section
+Thread 5 NOT in critical Th section (5)
+Thread 5 NOT in critical Th section (6)
+Thread 5 NOT in critical Th section (7)
+Thread 5 NOT in critical Th section (8)
+Thread 5 NOT in critical Th section (9)
+Main leaves critical Th section
+Thread 5 in critical Th section (10)
+Thread 5 in critical Th section (11)
+Thread 5 in critical Th section (12)
+Thread 5 in critical Th section (13)
+Thread 5 in critical Th section (14)
+
+In nested critical Pr section
+
+Thread 6 in critical Pr section (0)
+Thread 6 in critical Pr section (1)
+Thread 6 in critical Pr section (2)
+Thread 6 in critical Pr section (3)
+Thread 6 in critical Pr section (4)
+Main waites in critical Pr section
+Main leaves critical Pr section
+Thread 6 in critical Pr section (5)
+Thread 6 in critical Pr section (6)
+Thread 6 in critical Pr section (7)
+Thread 6 in critical Pr section (8)
+Thread 6 in critical Pr section (9)
+
+Thread 7 in critical Pr section (0)
+Thread 7 in critical Pr section (1)
+Thread 7 in critical Pr section (2)
+Thread 7 in critical Pr section (3)
+Thread 7 in critical Pr section (4)
+Main waites in critical Pr section
+Thread 7 NOT in critical Pr section (5)
+Thread 7 NOT in critical Pr section (6)
+Thread 7 NOT in critical Pr section (7)
+Thread 7 NOT in critical Pr section (8)
+Thread 7 NOT in critical Pr section (9)
+Main leaves critical Pr section
+Thread 7 in critical Pr section (10)
+Thread 7 in critical Pr section (11)
+Thread 7 in critical Pr section (12)
+Thread 7 in critical Pr section (13)
+Thread 7 in critical Pr section (14)
+
+Thread 8 in critical Pr section (0)
+Thread 8 in critical Pr section (1)
+Thread 8 in critical Pr section (2)
+Thread 8 in critical Pr section (3)
+Thread 8 in critical Pr section (4)
+Main waites in critical Pr section
+Thread 8 NOT in critical Pr section (5) waited 200 milliseconds
+Thread 8 NOT in critical Pr section (6) waited 200 milliseconds
+Main leaves critical Pr section
+Thread 8 in critical Pr section (7) waited 50 milliseconds
+Thread 8 in critical Pr section (8)
+Thread 8 in critical Pr section (9)
+Thread 8 in critical Pr section (10)
+Thread 8 in critical Pr section (11)
+
+Before end test
+ct_Int ()
+After end test
+
+End main

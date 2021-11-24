@@ -1,0 +1,38 @@
++++ Extern 1
+Exists: 1
+Create: OK
+Cr.New: OK
+Op.Wr.: OK
+Op.Rd.: 0 100
+Op.Rd.: 0 100
+Op.Rd.: 1 50
+--- Extern 1
++++ Extern 2
+Exists: 1
+Create: OK
+Cr.New: OK
+Op.Wr.: OK
+Op.Rd.: 1 0
+--- Extern 2
+bin/tfile1ÄÖÜ
+Exists: 0
+Create: OK
+Write : OK
+Trunc : OK
+Close : OK
+Open  : OK
+Size  : OK [10]
+EOF   : OK [0]
+Read  : OK [0123456789]
+EOF   : OK [1]
+Seek  : OK
+Read  : OK [3456]
+Pos   : OK [7]
+Close : OK
+Exists: 1
+Move  : OK
+bin/tfile2ÄÖÜ
+Exists: 1
+Cr.New: OK
+Delete: OK
+Exists: 0

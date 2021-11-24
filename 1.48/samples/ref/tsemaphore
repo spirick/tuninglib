@@ -1,0 +1,111 @@
+Thread 1 in critical Th section (0)
+Thread 1 in critical Th section (1)
+Thread 1 in critical Th section (2)
+Thread 1 in critical Th section (3)
+Thread 1 in critical Th section (4)
+Main waites in critical Th section
+Main leaves critical Th section
+Thread 1 in critical Th section (5)
+Thread 1 in critical Th section (6)
+Thread 1 in critical Th section (7)
+Thread 1 in critical Th section (8)
+Thread 1 in critical Th section (9)
+
+Thread 2 in critical Th section (0)
+Thread 2 in critical Th section (1)
+Thread 2 in critical Th section (2)
+Thread 2 in critical Th section (3)
+Thread 2 in critical Th section (4)
+Main waites in critical Th section
+Thread 2 NOT in critical Th section (5)
+Thread 2 NOT in critical Th section (6)
+Thread 2 NOT in critical Th section (7)
+Thread 2 NOT in critical Th section (8)
+Thread 2 NOT in critical Th section (9)
+Main leaves critical Th section
+Thread 2 in critical Th section (10)
+Thread 2 in critical Th section (11)
+Thread 2 in critical Th section (12)
+Thread 2 in critical Th section (13)
+Thread 2 in critical Th section (14)
+
+Thread 3 in critical Th section (0)
+Thread 3 in critical Th section (1)
+Thread 3 in critical Th section (2)
+Thread 3 in critical Th section (3)
+Thread 3 in critical Th section (4)
+Main waites in critical Th section
+Thread 3 NOT in critical Th section (5) waited 200 milliseconds
+Thread 3 NOT in critical Th section (6) waited 200 milliseconds
+Main leaves critical Th section
+Thread 3 in critical Th section (7) waited 50 milliseconds
+Thread 3 in critical Th section (8)
+Thread 3 in critical Th section (9)
+Thread 3 in critical Th section (10)
+Thread 3 in critical Th section (11)
+
+Main sends Th messages 1, 2
+Main starts thread 4
+Thread 4 received Th message 1
+Thread 4 received Th message 2
+Main sends Th messages 3, 4
+Thread 4 received Th message 3
+Thread 4 received Th message 4
+Thread 4 received Th message -1
+
+Thread 5 in critical Pr section (0)
+Thread 5 in critical Pr section (1)
+Thread 5 in critical Pr section (2)
+Thread 5 in critical Pr section (3)
+Thread 5 in critical Pr section (4)
+Main waites in critical Pr section
+Main leaves critical Pr section
+Thread 5 in critical Pr section (5)
+Thread 5 in critical Pr section (6)
+Thread 5 in critical Pr section (7)
+Thread 5 in critical Pr section (8)
+Thread 5 in critical Pr section (9)
+
+Thread 6 in critical Pr section (0)
+Thread 6 in critical Pr section (1)
+Thread 6 in critical Pr section (2)
+Thread 6 in critical Pr section (3)
+Thread 6 in critical Pr section (4)
+Main waites in critical Pr section
+Thread 6 NOT in critical Pr section (5)
+Thread 6 NOT in critical Pr section (6)
+Thread 6 NOT in critical Pr section (7)
+Thread 6 NOT in critical Pr section (8)
+Thread 6 NOT in critical Pr section (9)
+Main leaves critical Pr section
+Thread 6 in critical Pr section (10)
+Thread 6 in critical Pr section (11)
+Thread 6 in critical Pr section (12)
+Thread 6 in critical Pr section (13)
+Thread 6 in critical Pr section (14)
+
+Thread 7 in critical Pr section (0)
+Thread 7 in critical Pr section (1)
+Thread 7 in critical Pr section (2)
+Thread 7 in critical Pr section (3)
+Thread 7 in critical Pr section (4)
+Main waites in critical Pr section
+Thread 7 NOT in critical Pr section (5) waited 200 milliseconds
+Thread 7 NOT in critical Pr section (6) waited 200 milliseconds
+Main leaves critical Pr section
+Thread 7 in critical Pr section (7) waited 50 milliseconds
+Thread 7 in critical Pr section (8)
+Thread 7 in critical Pr section (9)
+Thread 7 in critical Pr section (10)
+Thread 7 in critical Pr section (11)
+
+Main sends Pr messages 1, 2
+Main starts thread 8
+Thread 8 received Pr message 1
+Thread 8 received Pr message 2
+Main sends Pr messages 3, 4
+Thread 8 received Pr message 3
+Thread 8 received Pr message 4
+Thread 8 received Pr message -1
+
+End main

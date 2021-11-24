@@ -1,0 +1,335 @@
+
+TestCont Std8Array:
+
+ct_Int (int i = 1)
+Container:
+ct_Int (const ct_Int & co_init = 1)
+Container: Entry[1]=1
+operator = (int i = 3)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=1 Entry[2]=3
+operator = (int i = 2)
+ct_Int (const ct_Int & co_init = 2)
+Container: Entry[1]=1 Entry[2]=2 Entry[3]=3
+operator = (int i = 0)
+ct_Int (const ct_Int & co_init = 0)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Begin 2. container
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+ct_Int (const ct_Int & co_init = 0)
+~ct_Int (3)
+~ct_Int (2)
+~ct_Int (1)
+~ct_Int (0)
+~ct_Int (0)
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+~ct_Int (3)
+~ct_Int (2)
+~ct_Int (1)
+~ct_Int (0)
+End 2. container
+~ct_Int (0)
+Container: Entry[1]=1 Entry[2]=2 Entry[3]=3
+operator = (int i = 2)
+~ct_Int (2)
+Container: Entry[1]=1 Entry[2]=3
+Container: Entry[1]=1 Entry[2]=3
+~ct_Int (1)
+Container: Entry[1]=3
+~ct_Int (3)
+~ct_Int (2)
+
+TestCont Rnd16BlockDList:
+
+ct_Int (int i = 1)
+Container:
+ct_Int (const ct_Int & co_init = 1)
+Container: Entry[1]=1
+operator = (int i = 3)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=1 Entry[2]=3
+operator = (int i = 2)
+ct_Int (const ct_Int & co_init = 2)
+Container: Entry[1]=1 Entry[3]=2 Entry[2]=3
+operator = (int i = 0)
+ct_Int (const ct_Int & co_init = 0)
+Container: Entry[4]=0 Entry[1]=1 Entry[3]=2 Entry[2]=3
+Begin 2. container
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Container: Entry[4]=0 Entry[1]=1 Entry[3]=2 Entry[2]=3
+ct_Int (const ct_Int & co_init = 0)
+~ct_Int (0)
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (3)
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (3)
+End 2. container
+~ct_Int (0)
+Container: Entry[2]=1 Entry[3]=2 Entry[4]=3
+operator = (int i = 2)
+~ct_Int (2)
+Container: Entry[2]=1 Entry[4]=3
+Container: Entry[2]=1 Entry[4]=3
+~ct_Int (1)
+Container: Entry[4]=3
+~ct_Int (3)
+~ct_Int (2)
+
+TestCont Chn32RefDList:
+
+ct_Int (int i = 1)
+Container:
+ct_Int (const ct_Int & co_init = 1)
+Container: Entry[p1]=1
+operator = (int i = 3)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[p1]=1 Entry[p2]=3
+operator = (int i = 2)
+ct_Int (const ct_Int & co_init = 2)
+Container: Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+operator = (int i = 0)
+ct_Int (const ct_Int & co_init = 0)
+Container: Entry[p4]=0 Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+Begin 2. container
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[p5]=0 Entry[p6]=1 Entry[p7]=2 Entry[p8]=3
+Container: Entry[p4]=0 Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+ct_Int (const ct_Int & co_init = 0)
+~ct_Int (0)
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (3)
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[p8]=0 Entry[p7]=1 Entry[p6]=2 Entry[p5]=3
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (3)
+End 2. container
+~ct_Int (0)
+Container: Entry[p7]=1 Entry[p6]=2 Entry[p5]=3
+operator = (int i = 2)
+~ct_Int (2)
+Container: Entry[p7]=1 Entry[p5]=3
+Container: Entry[p7]=1 Entry[p5]=3
+~ct_Int (1)
+Container: Entry[p5]=3
+~ct_Int (3)
+~ct_Int (2)
+
+TestCont gct_Array <ct_Int, ct_PageBlock>:
+
+ct_Int (int i = 1)
+Container:
+ct_Int (const ct_Int & co_init = 1)
+Container: Entry[1]=1
+operator = (int i = 3)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=1 Entry[2]=3
+operator = (int i = 2)
+ct_Int (const ct_Int & co_init = 2)
+Container: Entry[1]=1 Entry[2]=2 Entry[3]=3
+operator = (int i = 0)
+ct_Int (const ct_Int & co_init = 0)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Begin 2. container
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+ct_Int (const ct_Int & co_init = 0)
+~ct_Int (3)
+~ct_Int (2)
+~ct_Int (1)
+~ct_Int (0)
+~ct_Int (0)
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+~ct_Int (3)
+~ct_Int (2)
+~ct_Int (1)
+~ct_Int (0)
+End 2. container
+~ct_Int (0)
+Container: Entry[1]=1 Entry[2]=2 Entry[3]=3
+operator = (int i = 2)
+~ct_Int (2)
+Container: Entry[1]=1 Entry[2]=3
+Container: Entry[1]=1 Entry[2]=3
+~ct_Int (1)
+Container: Entry[1]=3
+~ct_Int (3)
+~ct_Int (2)
+
+TestCont gct_DList <ct_Int, gct_BlockStore <ct_PageBlock, gct_CharBlock <ct_Chn_Block, char> > >:
+
+ct_Int (int i = 1)
+Container:
+ct_Int (const ct_Int & co_init = 1)
+Container: Entry[1]=1
+operator = (int i = 3)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=1 Entry[2]=3
+operator = (int i = 2)
+ct_Int (const ct_Int & co_init = 2)
+Container: Entry[1]=1 Entry[3]=2 Entry[2]=3
+operator = (int i = 0)
+ct_Int (const ct_Int & co_init = 0)
+Container: Entry[4]=0 Entry[1]=1 Entry[3]=2 Entry[2]=3
+Begin 2. container
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Container: Entry[4]=0 Entry[1]=1 Entry[3]=2 Entry[2]=3
+ct_Int (const ct_Int & co_init = 0)
+~ct_Int (0)
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (3)
+ct_Int (const ct_Int & co_init = 0)
+ct_Int (const ct_Int & co_init = 1)
+ct_Int (const ct_Int & co_init = 2)
+ct_Int (const ct_Int & co_init = 3)
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (3)
+End 2. container
+~ct_Int (0)
+Container: Entry[2]=1 Entry[3]=2 Entry[4]=3
+operator = (int i = 2)
+~ct_Int (2)
+Container: Entry[2]=1 Entry[4]=3
+Container: Entry[2]=1 Entry[4]=3
+~ct_Int (1)
+Container: Entry[4]=3
+~ct_Int (3)
+~ct_Int (2)
+
+TestPtrCont Std8PtrArray:
+
+ct_Int (int i = 0)
+ct_Int (int i = 1)
+ct_Int (int i = 1)
+ct_Int (int i = 1)
+ct_Int (int i = 2)
+ct_Int (int i = 2)
+ct_Int (int i = 3)
+Container:
+Container: Entry[1]=1
+Container: Entry[1]=1 Entry[2]=3
+Container: Entry[1]=1 Entry[2]=2 Entry[3]=3
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Begin 2. container
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+End 2. container
+Container: Entry[1]=1 Entry[2]=2 Entry[3]=3
+Container: Entry[1]=1 Entry[2]=3
+Container: Entry[1]=1 Entry[2]=3
+Container: Entry[1]=3
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (1)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (2)
+~ct_Int (3)
+
+TestPtrCont Rnd16BlockPtrDList:
+
+ct_Int (int i = 0)
+ct_Int (int i = 1)
+ct_Int (int i = 1)
+ct_Int (int i = 1)
+ct_Int (int i = 2)
+ct_Int (int i = 2)
+ct_Int (int i = 3)
+Container:
+Container: Entry[1]=1
+Container: Entry[1]=1 Entry[2]=3
+Container: Entry[1]=1 Entry[3]=2 Entry[2]=3
+Container: Entry[4]=0 Entry[1]=1 Entry[3]=2 Entry[2]=3
+Begin 2. container
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+Container: Entry[1]=0 Entry[2]=1 Entry[3]=2 Entry[4]=3
+End 2. container
+Container: Entry[2]=1 Entry[3]=2 Entry[4]=3
+Container: Entry[2]=1 Entry[4]=3
+Container: Entry[2]=1 Entry[4]=3
+Container: Entry[4]=3
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (1)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (2)
+~ct_Int (3)
+
+TestPtrCont Chn32RefPtrDList:
+
+ct_Int (int i = 0)
+ct_Int (int i = 1)
+ct_Int (int i = 1)
+ct_Int (int i = 1)
+ct_Int (int i = 2)
+ct_Int (int i = 2)
+ct_Int (int i = 3)
+Container:
+Container: Entry[p1]=1
+Container: Entry[p1]=1 Entry[p2]=3
+Container: Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+Container: Entry[p4]=0 Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+Begin 2. container
+Container: Entry[p5]=0 Entry[p6]=1 Entry[p7]=2 Entry[p8]=3
+Container: Entry[p2]=0 Entry[p3]=1 Entry[p1]=2 Entry[p4]=3
+End 2. container
+Container: Entry[p3]=1 Entry[p1]=2 Entry[p4]=3
+Container: Entry[p3]=1 Entry[p4]=3
+Container: Entry[p3]=1 Entry[p4]=3
+Container: Entry[p4]=3
+~ct_Int (0)
+~ct_Int (1)
+~ct_Int (1)
+~ct_Int (1)
+~ct_Int (2)
+~ct_Int (2)
+~ct_Int (3)

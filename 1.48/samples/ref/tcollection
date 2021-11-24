@@ -1,0 +1,54 @@
+
+Test pointer container:
+
+ct_Int (int i = 1)
+Coll:
+Coll: Entry[p1]=1
+ct_Int (int i = 3)
+Coll: Entry[p1]=1 Entry[p2]=3
+ct_Int (int i = 2)
+Coll: Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+ct_Int (int i = 0)
+Coll: Entry[p4]=0 Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+Begin 2. collection
+Coll: Entry[p5]=0 Entry[p6]=1 Entry[p7]=2 Entry[p8]=3
+ct_Int (int i = 4)
+Coll: Entry[p8]=0 Entry[p7]=1 Entry[p6]=2 Entry[p5]=3 Entry[p9]=4
+End 2. collection
+~ct_Int (4)
+Coll: Entry[p4]=0 Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+~ct_Int (0)
+Coll: Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+~ct_Int (2)
+Coll: Entry[p1]=1 Entry[p2]=3
+Coll: Entry[p1]=1 Entry[p2]=3
+~ct_Int (1)
+Coll: Entry[p2]=3
+~ct_Int (3)
+
+Test collection:
+
+ct_Int (int i = 1)
+Coll:
+Coll: Entry[p1]=1
+ct_Int (int i = 3)
+Coll: Entry[p1]=1 Entry[p2]=3
+ct_Int (int i = 2)
+Coll: Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+ct_Int (int i = 0)
+Coll: Entry[p4]=0 Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+Begin 2. collection
+Coll: Entry[p5]=0 Entry[p6]=1 Entry[p7]=2 Entry[p8]=3
+ct_Int (int i = 4)
+Coll: Entry[p8]=0 Entry[p7]=1 Entry[p6]=2 Entry[p5]=3 Entry[p9]=4
+End 2. collection
+~ct_Int (4)
+Coll: Entry[p4]=0 Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+~ct_Int (0)
+Coll: Entry[p1]=1 Entry[p3]=2 Entry[p2]=3
+~ct_Int (2)
+Coll: Entry[p1]=1 Entry[p2]=3
+Coll: Entry[p1]=1 Entry[p2]=3
+~ct_Int (1)
+Coll: Entry[p2]=3
+~ct_Int (3)

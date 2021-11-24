@@ -1,0 +1,13 @@
+MaxExp: 22  Entries:  0  Size:    0  AllocEntries:  0  AllocSize:    0  FreeEntries:  0  FreeSize:    0
+SetMaxChainExp (10)
+MaxExp: 10  Entries:  0  Size:    0  AllocEntries:  0  AllocSize:    0  FreeEntries:  0  FreeSize:    0
+Alloc (1024 - ct_ChnStore::StoreInfoSize ())
+MaxExp: 10  Entries:  1  Size: 1008  AllocEntries:  1  AllocSize: 1008  FreeEntries:  0  FreeSize:    0
+Free (pv)
+MaxExp: 10  Entries:  1  Size: 1008  AllocEntries:  0  AllocSize:    0  FreeEntries:  1  FreeSize: 1008
+FreeUnused ()
+MaxExp: 10  Entries:  0  Size:    0  AllocEntries:  0  AllocSize:    0  FreeEntries:  0  FreeSize:    0
+Alloc (1025 - ct_ChnStore::StoreInfoSize ())
+MaxExp: 10  Entries:  1  Size: 2032  AllocEntries:  1  AllocSize: 2032  FreeEntries:  0  FreeSize:    0
+Free (pv)
+MaxExp: 10  Entries:  0  Size:    0  AllocEntries:  0  AllocSize:    0  FreeEntries:  0  FreeSize:    0

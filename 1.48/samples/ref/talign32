@@ -1,0 +1,4 @@
+sizeof (void *)      = 4
+sizeof (t_RefCount)  = 4
+sizeof (ct_RefCount) = 8
+sizeof (t_ChnInfo)   = 8
