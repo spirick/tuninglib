@@ -1,0 +1,139 @@
+
+ct_TestPackStore
+
+Init OK
+* Realloc: p0 4 -> p1
+* Alloc  : 64 -> p2
+PackStore::Alloc: 10 p2
+* Realloc: p1 8 -> p3
+* Alloc  : 33 -> p4
+PackStore::Alloc: 33 p4
+PackStore::Alloc: 11 p2 + 16
+PackStore::Alloc: 12 p2 + 32
+PackStore::Alloc: 13 p2 + 48
+* Realloc: p3 12 -> p5
+* Alloc  : 64 -> p6
+PackStore::Alloc: 14 p6
+PackStore::Alloc: 32 p6 + 16
+PackStore::Alloc: 15 p6 + 48
+* Free   : p4
+* Free   : p6
+* Realloc: p5 4 -> p7
+PackStore::FreeAll (true)
+PackStore::Alloc: 4 p2
+* Free   : p2
+* Realloc: p7 0 -> p0
+PackStore::FreeAll (false)
+* Realloc: p0 4 -> p8
+* Alloc  : 64 -> p9
+PackStore::Alloc: 5 p9
+* Free   : p9
+* Realloc: p8 0 -> p0
+~PackStore
+
+ct_TestPackStore2
+
+Init OK
+* Alloc  : 124 -> p1
+PackStore::Alloc: 27 p1
+* Alloc  : 65 -> p2
+PackStore::Alloc: 61 p2
+PackStore::Alloc: 28 p1 + 32
+PackStore::Alloc: 29 p1 + 64
+PackStore::Alloc: 15 p1 + 96
+* Alloc  : 124 -> p3
+PackStore::Alloc: 30 p3
+PackStore::Alloc: 60 p3 + 32
+PackStore::Alloc: 14 p3 + 96
+* Free   : p3
+* Free   : p2
+PackStore::FreeAll (true)
+PackStore::Alloc: 4 p1
+* Free   : p1
+PackStore::FreeAll (false)
+* Alloc  : 124 -> p4
+PackStore::Alloc: 5 p4
+* Free   : p4
+~PackStore
+
+gct_VarItemBlock <gct_EmptyBaseBlock <ct_TestStore> >
+
+* Realloc: p0 20 -> p1
+BlockStore::Alloc: pos0 1  addr0 p1
+* Realloc: p1 40 -> p2
+BlockStore::Alloc: pos1 2  addr0 p2  addr1 p3
+* Realloc: p2 60 -> p4
+BlockStore::Alloc: pos2 3  addr0 p4  addr2 p5
+* Realloc: p4 80 -> p6
+BlockStore::Alloc: pos3 4  addr0 p6  addr3 p7
+* Realloc: p6 100 -> p8
+BlockStore::Alloc: pos4 5  addr0 p8  addr4 p9
+BlockStore::Free : 4
+* Realloc: p8 60 -> p10
+BlockStore::Free : 5
+BlockStore::FreeUnused
+* Free   : p10
+~BlockStore
+
+ct_TestPageBlock
+
+* ct_TestPageBlock::ReallocPtr
+* Realloc: p0 4 -> p1
+* ct_TestPageBlock::AllocData
+* Alloc  : 80 -> p2
+BlockStore::Alloc: pos0 1  addr0 p2
+BlockStore::Alloc: pos1 2  addr0 p2  addr1 p3
+BlockStore::Alloc: pos2 3  addr0 p2  addr2 p4
+BlockStore::Alloc: pos3 4  addr0 p2  addr3 p5
+* ct_TestPageBlock::ReallocPtr
+* Realloc: p1 8 -> p6
+* ct_TestPageBlock::AllocData
+* Alloc  : 80 -> p7
+BlockStore::Alloc: pos4 5  addr0 p2  addr4 p7
+BlockStore::Free : 4
+* ct_TestPageBlock::FreeData
+* Free   : p7
+* ct_TestPageBlock::ReallocPtr
+* Realloc: p6 4 -> p8
+BlockStore::Free : 5
+BlockStore::FreeUnused
+* * * TestPageStore * * *
+ct_PageBlock::GetFixPagePtrs: 0
+ct_PageBlock::GetPageSize   : 80
+ct_PageBlock::GetRoundedSize: 80
+ct_PageBlock::GetMaxItemSize: 214748364
+* ~ct_TestPageBlock
+* ct_TestPageBlock::FreeData
+* Free   : p2
+* ct_TestPageBlock::ReallocPtr
+* Realloc: p8 0 -> p0
+~BlockStore
+
+ct_TestPageBlock 2
+
+* ct_TestPageBlock::AllocPtr
+* Alloc  : 8 -> p1
+* ct_TestPageBlock::AllocData
+* Alloc  : 80 -> p2
+BlockStore::Alloc: pos0 1  addr0 p2
+BlockStore::Alloc: pos1 2  addr0 p2  addr1 p3
+BlockStore::Alloc: pos2 3  addr0 p2  addr2 p4
+BlockStore::Alloc: pos3 4  addr0 p2  addr3 p5
+* * * ct_TestPageBlock::LastPageWarning * * *
+* ct_TestPageBlock::AllocData
+* Alloc  : 80 -> p6
+BlockStore::Alloc: pos4 5  addr0 p2  addr4 p6
+BlockStore::Free : 4
+* ct_TestPageBlock::FreeData
+* Free   : p6
+BlockStore::Free : 5
+BlockStore::FreeUnused
+* * * TestPageStore * * *
+ct_PageBlock::GetFixPagePtrs: 2
+ct_PageBlock::GetPageSize   : 80
+ct_PageBlock::GetRoundedSize: 80
+ct_PageBlock::GetMaxItemSize: 8
+* * * ct_TestPageBlock::LastPageWarning * * *
+* ct_TestPageBlock::AllocData
+* Alloc  : 80 -> p7
+* * * ct_TestPageBlock::LastPageError * * *

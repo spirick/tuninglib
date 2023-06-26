@@ -1,0 +1,54 @@
+sizeof (st_Test1) = 24
+sizeof (st_Test2) = 16
+
+Test ResBlock:
+
+* Realloc: p0 5 -> p1
+ResBlock::SetByteSize (5)
+ResBlock::SetMinByteSize (3)
+* Realloc: p1 10 -> p2
+ResBlock::SetMinByteSize (10)
+ResBlock::SetByteSize (9)
+* Realloc: p2 12 -> p3
+ResBlock::SetByteSize (12)
+* Realloc: p3 10 -> p4
+ResBlock::SetByteSize (9)
+* Realloc: p4 9 -> p5
+ResBlock::SetMinByteSize (8)
+* Free   : p5
+~ResBlock
+
+Test CharBlock:
+
+a
+a
+a
+
+abc
+abc
+abc
+
+0123456789
+0123456789
+0123456789
+
+01234abc789
+01234abc789
+01234abc789
+
+0123456789
+0123456789
+0123456789
+
+01234abc56789
+01234abc56789
+01234abc56789
+
+01234...56789
+01234...56789
+01234...56789
+
+0123456789
+0123456789
+0123456789
+

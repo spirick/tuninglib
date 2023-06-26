@@ -1,0 +1,11 @@
+bin/tdir1ÄÖÜ/
+Exists: 0
+Create: OK
+Exists: 1
+bin/tdir2ÄÖÜ/
+Exists: 0
+Move  : OK
+bin/tdir2ÄÖÜ/
+Exists: 1
+Delete: OK
+Exists: 0

@@ -1,0 +1,250 @@
+ 1 ct_Throw ()
+  throw 1
+TL_CATCH in NewThrow
+Exception 1 from NewThrow ()
+--------------------
+ct_Int ()
+ct_Int ()
+ct_TestBase
+ 1 ct_Throw ()
+  throw 1
+~ct_TestBase
+~ct_Int (0)
+~ct_Int (0)
+Exception 1 from pco_Test = new ct_Test
+--------------------
+ct_Int ()
+ct_Int ()
+ct_TestBase
+ 1 ct_Throw ()
+ 1 ~ct_Throw ()
+  throw 3
+~ct_TestBase
+~ct_Int (0)
+~ct_Int (0)
+Exception 3 from ~co_Test
+--------------------
+ 1 ct_Throw ()
+  throw 1
+Exception 1 from co_Array. AddObj ()
+Array length 0
+ 1 ct_Throw ()
+  throw 1
+Exception 1 from co_Array. AppendObj (0, 5)
+Array length 0
+ 1 ct_Throw ()
+ 2 ct_Throw (copy)
+  throw 2
+Exception 2 from co_Array2 = co_Array
+Array2 length 0
+ 1 ~ct_Throw ()
+  throw 3
+Exception 3 from co_Array. DelFirstObj ()
+Array length 0
+ 1 ct_Throw ()
+ 2 ct_Throw ()
+ 3 ct_Throw ()
+ 4 ct_Throw ()
+ 4 ~ct_Throw ()
+  throw 3
+ 3 ~ct_Throw ()
+  throw 3
+ 2 ~ct_Throw ()
+  throw 3
+ 1 ~ct_Throw ()
+  throw 3
+Exception 3 from co_Array. DelAll ()
+Array length 0
+ 1 ct_Throw ()
+ 2 ct_Throw ()
+ 3 ct_Throw ()
+ 4 ct_Throw ()
+ 4 ~ct_Throw ()
+  throw 3
+Exception 3 from co_Array. TruncateObj (2)
+Array length 3
+ 3 ~ct_Throw ()
+ 2 ~ct_Throw ()
+ 1 ~ct_Throw ()
+--------------------
+ 1 ct_Throw ()
+  throw 1
+Exception 1 from co_DList. AddObj ()
+DList length 0
+ 1 ct_Throw ()
+ 1 ~ct_Throw ()
+  throw 3
+Exception 3 from co_DList. DelFirstObj ()
+DList length 0
+ 1 ct_Throw ()
+ 2 ct_Throw ()
+ 2 ~ct_Throw ()
+  throw 3
+ 1 ~ct_Throw ()
+  throw 3
+Exception 3 from co_DList. DelAll ()
+DList length 0
+--------------------
+ 1 ct_Throw ()
+  throw 1
+Exception 1 from co_BDList. AddObj ()
+BDList length 0
+ 1 ct_Throw ()
+ 1 ~ct_Throw ()
+  throw 3
+Exception 3 from co_BDList. DelFirstObj ()
+BDList length 0
+ 1 ct_Throw ()
+ 2 ct_Throw ()
+ 2 ~ct_Throw ()
+  throw 3
+ 1 ~ct_Throw ()
+  throw 3
+Exception 3 from co_BDList. DelAll ()
+BDList length 0
+--------------------
+ 1 ct_Throw ()
+ 2 ct_Throw (copy)
+  throw 2
+Exception 2 from co_HashTable. AddObj ()
+HashTable length 0
+ 2 ct_Throw (copy)
+ 3 ct_Throw (copy)
+ 4 ct_Throw (copy)
+ 5 ct_Throw (copy)
+ 5 ~ct_Throw ()
+  throw 3
+ 4 ~ct_Throw ()
+  throw 3
+ 3 ~ct_Throw ()
+  throw 3
+ 2 ~ct_Throw ()
+  throw 3
+Exception 3 from co_HashTable. DelAll ()
+HashTable length 0
+--------------------
+ 2 ct_Throw ()
+ 3 ct_Throw ()
+ 4 ct_Throw ()
+ 5 ct_Throw ()
+ 6 ct_Throw (copy)
+ 7 ct_Throw (copy)
+ 8 ct_Throw (copy)
+  throw 2
+ 7 ~ct_Throw ()
+ 6 ~ct_Throw ()
+Exception 2 from TArrayConstructor ()
+ 5 ~ct_Throw ()
+ 4 ~ct_Throw ()
+ 3 ~ct_Throw ()
+ 2 ~ct_Throw ()
+--------------------
+ 2 ct_Throw ()
+ 3 ct_Throw ()
+ 4 ct_Throw ()
+ 5 ct_Throw ()
+ 5 ~ct_Throw ()
+  throw 3
+ 4 ~ct_Throw ()
+  throw 3
+ 3 ~ct_Throw ()
+  throw 3
+ 2 ~ct_Throw ()
+  throw 3
+Exception 3 from TArrayDestructor ()
+--------------------
+ 2 ct_Throw ()
+ 3 ct_Throw ()
+ 4 ct_Throw ()
+ 5 ct_Throw ()
+ 6 ct_Throw (copy)
+ 7 ct_Throw (copy)
+ 8 ct_Throw (copy)
+  throw 2
+ 7 ~ct_Throw ()
+ 6 ~ct_Throw ()
+Exception 2 from TDListConstructor ()
+ 5 ~ct_Throw ()
+ 4 ~ct_Throw ()
+ 3 ~ct_Throw ()
+ 2 ~ct_Throw ()
+--------------------
+ 2 ct_Throw ()
+ 3 ct_Throw ()
+ 4 ct_Throw ()
+ 5 ct_Throw ()
+ 6 ct_Throw (copy)
+ 7 ct_Throw (copy)
+ 8 ct_Throw (copy)
+  throw 2
+ 7 ~ct_Throw ()
+ 6 ~ct_Throw ()
+Exception 2 from TBDListConstructor ()
+ 5 ~ct_Throw ()
+ 4 ~ct_Throw ()
+ 3 ~ct_Throw ()
+ 2 ~ct_Throw ()
+--------------------
+ 2 ct_Throw ()
+ 3 ct_Throw ()
+ 4 ct_Throw ()
+ 5 ct_Throw ()
+ 5 ~ct_Throw ()
+  throw 3
+ 4 ~ct_Throw ()
+  throw 3
+ 3 ~ct_Throw ()
+  throw 3
+ 2 ~ct_Throw ()
+  throw 3
+Exception 3 from TDListDestructor ()
+--------------------
+ 2 ct_Throw ()
+ 3 ct_Throw ()
+ 4 ct_Throw ()
+ 5 ct_Throw ()
+ 5 ~ct_Throw ()
+  throw 3
+ 4 ~ct_Throw ()
+  throw 3
+ 3 ~ct_Throw ()
+  throw 3
+ 2 ~ct_Throw ()
+  throw 3
+Exception 3 from TBDListDestructor ()
+--------------------
+ 2 ct_Throw ()
+ 3 ct_Throw (copy)
+ 4 ct_Throw (copy)
+ 5 ct_Throw (copy)
+ 6 ct_Throw (copy)
+ 6 ~ct_Throw ()
+ 6 ct_Throw (copy)
+ 7 ct_Throw (copy)
+ 8 ct_Throw (copy)
+  throw 2
+ 7 ~ct_Throw ()
+ 6 ~ct_Throw ()
+Exception 2 from THashTableConstructor ()
+ 5 ~ct_Throw ()
+ 4 ~ct_Throw ()
+ 3 ~ct_Throw ()
+ 2 ~ct_Throw ()
+--------------------
+ 2 ct_Throw ()
+ 3 ct_Throw (copy)
+ 4 ct_Throw (copy)
+ 5 ct_Throw (copy)
+ 6 ct_Throw (copy)
+ 6 ~ct_Throw ()
+ 5 ~ct_Throw ()
+  throw 3
+ 4 ~ct_Throw ()
+  throw 3
+ 3 ~ct_Throw ()
+  throw 3
+ 2 ~ct_Throw ()
+  throw 3
+Exception 3 from THashTableDestructor ()
+--------------------
+ 1 ~ct_Throw ()

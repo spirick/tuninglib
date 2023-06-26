@@ -1,0 +1,18 @@
+
+Drive        : "A:"
+Path         : "\PATH\"
+PurePath     : "\PATH"
+DrivePath    : "A:\PATH\"
+PureDrivePath: "A:\PATH"
+Name         : "NAME"
+Ext          : "EXT"
+NameExt      : "NAME.EXT"
+All          : "A:\PATH\NAME.EXT"
+ToRel        : "..\NAME.EXT"
+ToAbs        : "A:\PATH\NAME.EXT"
+ToLower      : "a:\path\name.ext"
+Wildc        : 0
+Abs          : 1
+Rel          : 0
+
+GetExt () == "ext"

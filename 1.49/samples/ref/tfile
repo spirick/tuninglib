@@ -1,0 +1,44 @@
+Main Init PrSemaphore OK
+Main Name  : bin/tfile1ÄÖÜ
+Main Exists: 0
+Main Create: OK
+Main Write : OK
+Main Trunc : OK
++++ Extern 1
+Ext. Init PrSemaphore OK
+Ext. Exists: 1
+Ext. Create: OK
+Ext. Cr.New: OK
+Ext. Op.Wr.: OK
+Main Delay 250
+Ext. Op.Rd.: 0 100
+Ext. Op.Rd.: 0 100
+Main Close : OK
+Ext. Op.Rd.: 1 50
+Ext. Close : OK
+--- Extern 1
+Main Open  : OK
+Main Size  : OK [10]
+Main EOF   : OK [0]
+Main Read  : OK [0123456789]
+Main EOF   : OK [1]
+Main Seek  : OK
+Main Read  : OK [3456]
+Main Pos   : OK [7]
++++ Extern 2
+Ext. Init PrSemaphore OK
+Ext. Exists: 1
+Ext. Create: OK
+Ext. Cr.New: OK
+Ext. Op.Wr.: OK
+Main Close : OK
+Ext. Op.Rd.: 1 0
+Ext. Close : OK
+--- Extern 2
+Main Exists: 1
+Main Move  : OK
+Main Name  : bin/tfile2ÄÖÜ
+Main Exists: 1
+Main Cr.New: OK
+Main Delete: OK
+Main Exists: 0
