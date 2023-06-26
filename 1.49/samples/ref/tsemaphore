@@ -1,0 +1,89 @@
+Main ThAcquire ()
+Main Success
+Begin Thread 1
+Thread 1 ThAcquire ()
+Main ThRelease ()
+Thread 1 Success
+Thread 1 ThRelease ()
+Thread 1 End
+
+Begin Thread 2
+Thread 2 ThTryAcquire ()
+Thread 2 Success
+Thread 2 ThRelease ()
+Main ThAcquire ()
+Main Success
+Thread 2 ThTryAcquire ()
+Thread 2 No success
+Thread 2 End
+Main ThRelease ()
+
+Begin Thread 3
+Thread 3 ThTryAcquire (100)
+Thread 3 Success
+Thread 3 ThRelease ()
+Main ThAcquire ()
+Main Success
+Thread 3 ThTryAcquire (100)
+Thread 3 No success
+Thread 3 ThTryAcquire (100)
+Main ThRelease ()
+Thread 3 Success
+Thread 3 ThRelease ()
+Thread 3 End
+
+Main sends Th messages 1, 2
+Begin Thread 4
+Thread 4 received Th message 1
+Thread 4 received Th message 2
+Main sends Th messages 3, 4
+Thread 4 received Th message 3
+Thread 4 received Th message 4
+Thread 4 received Th message -1
+Thread 4 End
+
+Main PrAcquire ()
+Main Success
+Begin Thread 5
+Thread 5 PrAcquire ()
+Main PrRelease ()
+Thread 5 Success
+Thread 5 PrRelease ()
+Thread 5 End
+
+Begin Thread 6
+Thread 6 PrTryAcquire ()
+Thread 6 Success
+Thread 6 PrRelease ()
+Main PrAcquire ()
+Main Success
+Thread 6 PrTryAcquire ()
+Thread 6 No success
+Thread 6 End
+Main PrRelease ()
+
+Begin Thread 7
+Thread 7 PrTryAcquire (100)
+Thread 7 Success
+Thread 7 PrRelease ()
+Main PrAcquire ()
+Main Success
+Thread 7 PrTryAcquire (100)
+Thread 7 No success
+Thread 7 PrTryAcquire (100)
+Main PrRelease ()
+Thread 7 Success
+Thread 7 PrRelease ()
+Thread 7 End
+
+Main sends Pr messages 1, 2
+Begin Thread 8
+Thread 8 received Pr message 1
+Thread 8 received Pr message 2
+Main sends Pr messages 3, 4
+Thread 8 received Pr message 3
+Thread 8 received Pr message 4
+Thread 8 received Pr message -1
+Thread 8 End
+
+End main

@@ -1,0 +1,73 @@
+Thread 1 Start
+Thread 2 Start
+Thread 3 Start
+Thread 1 Mid
+Thread 2 Mid
+Thread 3 Mid
+Thread 1 End
+Thread 2 End
+Thread 3 End
+
+In nested critical Th section
+
+Main EnterCrTh ()
+Main Success
+Begin Thread 4
+Thread 4 EnterCrTh ()
+Main LeaveCrTh ()
+Thread 4 Success
+Thread 4 LeaveCrTh ()
+Thread 4 End
+
+Begin Thread 5
+Thread 5 TryEnterCrTh ()
+Thread 5 Success
+Thread 5 LeaveCrTh ()
+Main EnterCrTh ()
+Main Success
+Thread 5 TryEnterCrTh ()
+Thread 5 No success
+Thread 5 End
+Main LeaveCrTh ()
+
+In nested critical Pr section
+
+Main EnterCrPr ()
+Main Success
+Begin Thread 6
+Thread 6 EnterCrPr ()
+Main LeaveCrPr ()
+Thread 6 Success
+Thread 6 LeaveCrPr ()
+Thread 6 End
+
+Begin Thread 7
+Thread 7 TryEnterCrPr ()
+Thread 7 Success
+Thread 7 LeaveCrPr ()
+Main EnterCrPr ()
+Main Success
+Thread 7 TryEnterCrPr ()
+Thread 7 No success
+Thread 7 End
+Main LeaveCrPr ()
+
+Begin Thread 8
+Thread 8 TryEnterCrPr (100)
+Thread 8 Success
+Thread 8 LeaveCrPr ()
+Main EnterCrPr ()
+Main Success
+Thread 8 TryEnterCrPr (100)
+Thread 8 No success
+Thread 8 TryEnterCrPr (100)
+Main LeaveCrPr ()
+Thread 8 Success
+Thread 8 LeaveCrPr ()
+Thread 8 End
+
+Before end test
+ct_Int ()
+After end test
+
+End main
